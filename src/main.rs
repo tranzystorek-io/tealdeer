@@ -24,7 +24,7 @@ use std::process;
 use ansi_term::{Color, Style};
 use app_dirs::AppInfo;
 use atty::Stream;
-use clap::Clap;
+use clap::{AppSettings, Clap};
 #[cfg(not(target_os = "windows"))]
 use pager::Pager;
 
@@ -55,6 +55,8 @@ const PAGER_COMMAND: &str = "less -R";
 
 #[derive(Clap, Debug)]
 #[clap(about = "A fast TLDR client", author, version)]
+#[clap(setting = AppSettings::ArgRequiredElseHelp)]
+#[clap(setting = AppSettings::HelpRequired)]
 struct Args {
     /// The command to show (e.g. `tar` or `git log`)
     #[clap(min_values = 1)]
