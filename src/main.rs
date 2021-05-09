@@ -57,6 +57,8 @@ const PAGER_COMMAND: &str = "less -R";
 #[clap(about = "A fast TLDR client", author, version)]
 #[clap(setting = AppSettings::ArgRequiredElseHelp)]
 #[clap(setting = AppSettings::HelpRequired)]
+#[clap(setting = AppSettings::DeriveDisplayOrder)]
+#[clap(setting = AppSettings::UnifiedHelpMessage)]
 struct Args {
     /// The command to show (e.g. `tar` or `git log`)
     #[clap(min_values = 1)]
